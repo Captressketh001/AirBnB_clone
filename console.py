@@ -137,16 +137,17 @@ class HBNBCommand(cmd.Cmd):
         """
         Prints all string representation of all instances based or not on the class name
         """
-        if not line:
-            objects = [str(obj) for obj in storage.all().values()]
+        argl = line.split(" ")
+        if len(argl) > 0 and argl[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
         else:
-            class_name = line.split()
-            if class_name[0] not in HBNBCommand.__classes:
-                print("** class doesn't exist **")
-                return
-            objects = [str(obj) for obj in storage.all().values() if obj.__class__.__name__ == class_name]
-        print("[" + ", ".join(objects) + "]")
-        
+            objl = []
+            for obj in storage.all().values():
+                if len(argl) > 0 and argl[0] == obj.__class__.__name__:
+                    objl.append(obj.__str__())
+                elif len(argl) == 0:
+                    objl.append(obj.__str__())
+            print(objl)
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
