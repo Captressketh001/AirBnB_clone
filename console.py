@@ -4,7 +4,7 @@ import cmd
 
 class HBNBCommand(cmd.Cmd):
     pass
-    prompt = '(hbnb)'
+    prompt = '(hbnb) '
     def do_quit(self, line):
         """
         Exiting the program with quit
