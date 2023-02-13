@@ -3,6 +3,7 @@
 import cmd
 from models import base_model
 from models.base_model import BaseModel
+from models import storage
 
 class HBNBCommand(cmd.Cmd):
     """
@@ -32,21 +33,35 @@ class HBNBCommand(cmd.Cmd):
         """
         Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id
         """
-        if not line:
+        try:
+            if not line:
+                raise SyntaxError()
+            
+            my_line = line.split(" ")
+            kwargs = {}
+
+            for i in range(1, len(my_line)):
+                key, value = tuple(my_line[i].split("="))
+                if value[0] == '"':
+                    value = value.strip('"').replace('_', " ")
+                else:
+                    try:
+                        value = eval(value)
+                    except (SyntaxError, NameError):
+                        continue
+                kwargs[key] = value
+            if kwargs == {}:
+                obj = eval(my_line[0])()
+            else:
+                obj = eval(my_line[0])(**kwargs)
+                storage.new(obj)
+            print(obj.id)
+            obj.save()
+        except SyntaxError:
             print("** class name missing **")
-            return
-        
-        line = line.split(" ")
-        class_name = line[0]
-
-        if class_name not in base_model:
-            print(" ** class doesn't exist **")
-            return
-        obj = base_model[class_name]()
-        obj.save()
-        print(obj.id)
-
-
+        except NameError:
+            print("** class doesn't exist **")
+    
 
 
 if __name__ == '__main__':
