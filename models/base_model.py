@@ -18,6 +18,7 @@ class BaseModel():
     Public Instance Methods:
         __init__(self, *args, **kwargs)
         __str__(self)
+        __repr__(self)
         __save__(self)
         to_dict(self)
     """
@@ -56,6 +57,12 @@ class BaseModel():
         Prints the class name, id and dict
         """
         return '[{}] ({}) {}'.format(self.__class__.__name__, self.id, self.__dict__)
+
+    def __repr__(self):
+        """
+        returns string repr
+        """
+        return (self.__str__())
 
     def save(self):
         """"
