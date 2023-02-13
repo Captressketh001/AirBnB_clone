@@ -7,3 +7,6 @@ def print_name(name):
     Takes in name, and prints to the stdout.
     """
     print(name)
+
+
+print_name("Fountain")
