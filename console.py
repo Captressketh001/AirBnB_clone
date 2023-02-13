@@ -133,5 +133,23 @@ class HBNBCommand(cmd.Cmd):
         del store[key]
         storage.save()
         
+    def do_all(self, line):
+        store = storage.all().values()
+        objects = []
+        if not line:
+            for obj in store:
+                objects.append(str(obj))
+
+        my_line = line.split(" ")
+
+        if my_line[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist ** ")
+            return
+        else:
+            for obj in store:
+                objects.append(str(obj))
+        print("[" + ", ".join(objects) + "]")
+        
+
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
