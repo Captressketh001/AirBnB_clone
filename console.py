@@ -3,7 +3,9 @@
 import cmd
 
 class HBNBCommand(cmd.Cmd):
-    pass
+    """
+     a program called console.py that contains the entry point of the command interpreter
+    """
     prompt = '(hbnb) '
     def do_quit(self, line):
         """
@@ -13,7 +15,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_EOF(self, line):
         """"
-        Exiting the program with EOF
+        Exiting the program with EOF (ctrl+D)
         """
         return True
 
