@@ -37,7 +37,8 @@ class FileStorage:
             with open(self.__file_path, 'r', encoding='utf-8') as f:
                 obj_dict = json.load(f)
                 for key, value in obj_dict.items():
-                    obj = self.class_dict[value['__class__']](**value)
+                    class_name, obj_id = key.split(".")
+                    obj = eval(class_name)(**value)
                     self.__objects[key] = obj
         except FileNotFoundError:
             pass
