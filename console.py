@@ -134,20 +134,17 @@ class HBNBCommand(cmd.Cmd):
         storage.save()
         
     def do_all(self, line):
-        store = storage.all().values()
-        objects = []
+        """
+        Prints all string representation of all instances based or not on the class name
+        """
         if not line:
-            for obj in store:
-                objects.append(str(obj))
-
-        my_line = line.split(" ")
-
-        if my_line[0] not in HBNBCommand.__classes:
-            print("** class doesn't exist ** ")
-            return
+            objects = [str(obj) for obj in storage.all().values()]
         else:
-            for obj in store:
-                objects.append(str(obj))
+            class_name = line.split()
+            if class_name[0] not in HBNBCommand.__classes:
+                print("** class doesn't exist **")
+                return
+            objects = [str(obj) for obj in storage.all().values() if obj.__class__.__name__ == class_name]
         print("[" + ", ".join(objects) + "]")
         
 
