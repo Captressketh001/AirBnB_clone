@@ -39,10 +39,10 @@ class HBNBCommand(cmd.Cmd):
         line = line.split()
         class_name = line[0]
 
-        if class_name not in base_model.classes:
+        if class_name not in base_model:
             print(" ** class doesn't exist **")
             return
-        obj = base_model.classes[class_name]()
+        obj = base_model[class_name]()
         obj.save()
         print(obj.id)
 
