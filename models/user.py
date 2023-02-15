@@ -3,7 +3,10 @@
 """
 A model that inherits from another model
 """
+
+
 from models.base_model import BaseModel
+
 
 class User(BaseModel):
     """
