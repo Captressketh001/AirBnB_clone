@@ -16,23 +16,21 @@
     width: 25%;
     height: 100%;
     border-right: 1px solid #DDDDDD;
-    margin-left: 30px;
     order: 0;
 }
 .amenities{
     width: 25%;
     height: 100%;
-    margin-left: 30px;
     order: 1;
 }
 h3{
     font-weight: 600;
-    margin: 15px 0 0 0;
+    margin: 21px 0 0 30px;
 }
 h4{
     font-size: 14px;
     font-weight: 400;
-    margin:0
+    margin:0 0 0 30px;
 }
 
 .filters  button{
@@ -47,4 +45,25 @@ h4{
     order: 2;
     margin-left: auto;
     margin-top: 10px;
+}
+ul.popover{
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    background-color: #FAFAFA;
+    padding: 20px;
+    list-style-type: none;
+    display: none;
+
+}
+ul li{
+    list-style: none;
+}
+ul li h2{
+    font-size: 16px;
+}
+.locations:hover ul.popover{
+    display: block;
+}
+.amenities:hover ul.popover{
+    display: block;
 }
