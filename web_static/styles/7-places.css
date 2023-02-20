@@ -1,9 +1,13 @@
 .places{
     display: flex;
-    flex-direction: column;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
 .places h1{
     font-size: 30px;
+    flex-grow: 2;
+    margin-left: 16px;
+    width: 100%;
 }
 .places article{
     width: 390px;
@@ -12,6 +16,7 @@
     border: 1px solid #FF5A5F;
     border-radius: 4px;
     display: inline-block;
+    
 }
 .places article h2{
     font-size: 30px;

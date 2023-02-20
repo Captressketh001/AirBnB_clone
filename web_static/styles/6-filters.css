@@ -12,18 +12,18 @@
 .filters button:hover{
     opacity: 0.9;
 }
-.locations{
+.filters .locations{
     width: 25%;
     height: 100%;
     border-right: 1px solid #DDDDDD;
     order: 0;
 }
-.amenities{
+.filters .amenities{
     width: 25%;
     height: 100%;
     order: 1;
 }
-h3{
+.filters h3{
     font-weight: 600;
     margin: 21px 0 0 30px;
 }
@@ -55,10 +55,10 @@ ul.popover{
     display: none;
 
 }
-ul li{
+ul.popover li{
     list-style: none;
 }
-ul li h2{
+ul.popover li h2{
     font-size: 16px;
 }
 .locations:hover ul.popover{
