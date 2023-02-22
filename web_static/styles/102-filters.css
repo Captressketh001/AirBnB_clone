@@ -67,3 +67,34 @@ ul.popover li h2{
 .amenities:hover ul.popover{
     display: block;
 }
+@media screen and (max-width: 768px){
+    .filters{   
+        width: 90%;
+        margin: 0 auto;
+        flex-direction: column;
+        height: auto;
+    }
+    .filters .locations{
+        border-right: none;
+    }
+    .filters .locations, .filters .amenities{
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #DDDDDD;
+        padding: 10px 0;
+
+    }
+    .filters button{
+        align-self: center;
+        margin-left: 0px;
+        margin-right: 0;
+        width: 80%;
+        margin: 10px 0px ;
+    }
+    .filters h3{
+        margin: 0;
+    }
+    .filters h4{
+        margin: 0;
+    }
+}
